@@ -1,0 +1,144 @@
+:root {
+  --white: #fff;
+  --dark-color: #081331;
+  --deepBlue-color: #131e3a;
+  --iceBlue-color: #1bd3fc;
+  --muted-color: #bebebe;
+  --orange-color: #fd7e2e;
+  --primary-color: #1b5afd;
+  --yellow-color: #f9d018;
+  --deepBlue-light-color: #f5f4ff;
+  --iceBlue-light-color: #e9f8fb;
+  --orange-light-color: #fff2ea;
+  --primary-light-color: #366dfc;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  /*equivalent to 10px*/
+  font-size: 62.5% !important;
+}
+
+body {
+  background-color: var(--white) !important;
+  color: var(--dark-color) !important;
+  font-family: "Lato", sans-serif !important;
+  font-size: 1.6rem !important;
+  letter-spacing: 0 !important;
+  opacity: 1 !important;
+}
+.row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/*Typography*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /*ds place 1rem space btw our heading and their text so it can look closer to what we have on the mockup*/
+  font-weight: bold !important;
+  line-height: 1.1 !important;
+  margin-bottom: 1rem !important;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+}
+
+p {
+  margin-top: 0 !important;
+}
+
+.padding-none {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+/*Desktop*/
+@media screen and (min-width: 1024px) {
+  body {
+    font-size: 1.8rem !important;
+  }
+
+  h1 {
+    font-size: 6rem !important;
+  }
+
+  h2 {
+    font-size: 4rem !important;
+  }
+
+  h3 {
+    font-size: 2.8rem !important;
+  }
+  h4 {
+    font-size: 1.999rem !important;
+  }
+  h5 {
+    font-size: 1.414rem !important;
+  }
+  h6 {
+    font-size: 1rem !important;
+  }
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.primary-text {
+  color: var(--primary-light-color) !important;
+}
+
+.text-muted {
+  color: var(--muted-color) !important;
+}
+
+.cursor {
+  cursor: pointer !important;
+}
+
+small {
+  font-size: 70% !important;
+}
+
+.ant-layout-sider {
+  background: #fcfcfc !important;
+  margin-right: 4rem !important;
+}
+
+@media only screen and (max-width: 500px) {
+  .col {
+    margin-bottom: 4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .col-md-4 {
+    margin-bottom: 2rem !important;
+  }
+}
+@media (min-width: 1024px) {
+  small {
+    font-size: 80% !important;
+  }
+}

@@ -1,0 +1,71 @@
+.home__inviteBtn {
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  border: 2px dashed var(--muted-color);
+  display: flex;
+  align-items: center;
+}
+
+.home__people .people {
+  width: 3rem;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-left: -1.2rem;
+  border: 1px solid #fff;
+}
+
+.home__people .box {
+  height: 4rem;
+  width: 4rem;
+  background-color: var(--dark-color);
+  padding-top: -0.5rem;
+  margin-left: -1.2rem;
+  margin-top: 1rem;
+  border-radius: 2rem;
+}
+
+.home__drop-down {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 15rem;
+  border: 1px solid var(--muted-color);
+  border-radius: 20px;
+  color: var(--dark-color);
+  cursor: pointer;
+}
+
+.home__current-date {
+  background-color: var(--primary-color);
+  color: #fff !important;
+  width: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.home__user-card {
+  width: 100%;
+  border: 1px solid var(--muted-color);
+  height: 7rem;
+  border-radius: 12px;
+  padding: 0.7rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.home__user-card .avatar {
+  width: 6rem;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.home {
+  overflow: scroll;
+  height: 100vh;
+}

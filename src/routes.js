@@ -1,0 +1,21 @@
+//Object.freeze ensures the object we pass here cannot be modified anywhere in our app
+export default Object.freeze({
+  HOME: "/",
+  LOGIN: "/login",
+  FORGOT_PASSWORD: "/forgotPassword",
+  OTP_SCREEN: "/otpScreen",
+  RESET_PASSWORD: "/resetPassword",
+  RIDE: "/ride",
+  COMPANY: "/company",
+  COMPANY_NOTES: "/company/notes",
+  DRIVE: "/drive",
+  SHIP: "/ship",
+  PRIVACY: "/privacy",
+  TERMS: "/terms",
+  HELP_RIDE: "/helpRide",
+  CONTACT_US: "/contactUs",
+  TRIP_HISTORY: "/tripHistory",
+  TRIP_DETAILS: "/tripDetails",
+  MY_DELIVERIES: "/myDeliveries",
+  SETTINGS: "/settings",
+});
