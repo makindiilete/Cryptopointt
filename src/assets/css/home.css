@@ -66,6 +66,84 @@
 }
 
 .home {
-  overflow: scroll;
+  /*overflow: scroll;*/
   height: 100vh;
+}
+
+.home__current-date-pointer-head {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  top: 5rem;
+  left: 63rem;
+  background-color: var(--primary-color);
+}
+
+.home__current-date-pointer-line {
+  width: 0.2rem;
+  height: 90rem;
+  top: 6rem;
+  left: 63.4rem;
+  background-color: var(--primary-color);
+}
+
+.home-divider-line {
+  width: 0.1rem;
+  height: 90rem;
+  top: 6rem;
+  background-color: var(--muted-color);
+  opacity: 0.4;
+}
+
+.home-divider-line.one {
+  left: 30rem;
+}
+.home-divider-line.two {
+  left: 35rem;
+}
+.home-divider-line.three {
+  left: 40rem;
+}
+
+.home-divider-line.four {
+  left: 45rem;
+}
+
+.home-divider-line.five {
+  left: 50rem;
+}
+
+.home-divider-line.six {
+  left: 55rem;
+}
+
+.home-divider-line.seven {
+  left: 60rem;
+}
+
+.home-divider-line.eight {
+  left: 67rem;
+}
+
+.home-divider-line.nine {
+  left: 73rem;
+}
+
+.home-divider-line.ten {
+  left: 79rem;
+}
+
+.home-divider-line.eleven {
+  left: 87rem;
+}
+
+.home-divider-line.twelve {
+  left: 95rem;
+}
+
+.home-divider-line.thirteen {
+  left: 105rem;
+}
+.home-divider-line.fourteen {
+  left: 115rem;
 }

@@ -96,10 +96,7 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
             </div>
           </div>
         </div>
-        <div
-          className="mr-4"
-          style={{ borderRight: "1px solid #bebebe" }}
-        ></div>
+        <div className="mr-4" style={{ borderRight: "1px solid #bebebe" }} />
 
         <div className="d-flex align-items-center cursor">
           <GiNestedEclipses size="4rem" />
@@ -119,7 +116,7 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
         <div className="d-flex justify-content-between">
           <div>
             <p className="padding-none font-weight-bold mt-4">
-              Cryptopoint App..
+              Cryptopoint App
             </p>
             <div className="d-flex align-items-center">
               <small className="text-muted padding-none mr-4">
@@ -181,12 +178,36 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
         </div>
 
         <br />
-        <div className="calendar d-flex justify-content-around">
+        <div className="calendar d-flex justify-content-around position-relative">
           {dates?.map((date, index) => (
-            <div key={date} className={index === 8 ? "home__current-date" : ""}>
+            <div
+              key={date}
+              className={
+                date?.includes(String(new Date().getDate()))
+                  ? "home__current-date"
+                  : ""
+              }
+            >
               <small className="padding-none">{date}</small>
             </div>
           ))}
+          <div className="position-absolute home__current-date-pointer-head" />
+          <div className="position-absolute home__current-date-pointer-line" />
+          <div className="position-absolute home-divider-line one" />
+          <div className="position-absolute home-divider-line two" />
+          <div className="position-absolute home-divider-line three" />
+          <div className="position-absolute home-divider-line four" />
+          <div className="position-absolute home-divider-line five" />
+          <div className="position-absolute home-divider-line six" />
+          <div className="position-absolute home-divider-line two" />
+          <div className="position-absolute home-divider-line seven" />
+          <div className="position-absolute home-divider-line eight" />
+          <div className="position-absolute home-divider-line nine" />
+          <div className="position-absolute home-divider-line ten" />
+          <div className="position-absolute home-divider-line eleven" />
+          <div className="position-absolute home-divider-line twelve" />
+          <div className="position-absolute home-divider-line thirteen" />
+          <div className="position-absolute home-divider-line fourteen" />
         </div>
         <br />
         {users?.map((user, index) => (
@@ -208,6 +229,7 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                 <RiMore2Fill size="2rem" color="#bebebe" />
               </div>
             </div>
+            <div className="col-md-9" />
           </div>
         ))}
       </div>
