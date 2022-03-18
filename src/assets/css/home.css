@@ -1,9 +1,12 @@
 .home__inviteBtn {
-  padding: 1rem 2rem;
+  padding: 0.5rem;
   border-radius: 15px;
   border: 2px dashed var(--muted-color);
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 10rem;
+  cursor: pointer;
 }
 
 .home__people .people {

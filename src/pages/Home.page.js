@@ -134,10 +134,12 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
           </div>
           <div className="d-flex align-items-center">
             <div className="home__inviteBtn">
-              <div className="text-muted">
-                <AiOutlinePlus />
+              <div className="d-flex">
+                <div className="text-muted">
+                  <AiOutlinePlus />
+                </div>
+                <p className="padding-none mx-2 text-muted">Invite</p>
               </div>
-              <p className="padding-none mx-2 text-muted">Invite</p>
             </div>
             <div className="home__people ml-5">
               <img src={woman1} alt="" className="img-fluid people" />
