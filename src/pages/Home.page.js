@@ -59,14 +59,27 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
     { task: "Api Testing" },
   ]);
   const [dates, setDates] = useState([]);
-  const [totalPercent, setTotalPercent] = useState(56);
+  const [totalPercent, setTotalPercent] = useState(0);
 
   useEffect(() => {
     const calendar = getDays();
     setDates(calendar);
     const userList = getAllUsers();
     setUsers(userList);
+    handleTotalPercent(userList);
   }, []);
+
+  function handleTotalPercent(usersArg) {
+    let total = 0;
+    for (const user of users) {
+      total += user?.percent;
+    }
+    setTotalPercent(Math.floor(total / 10));
+  }
+
+  useEffect(() => {
+    handleTotalPercent();
+  }, [users]);
 
   const nav = () => (
     <div className="d-flex justify-content-between">
@@ -269,12 +282,7 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                 <div
                   style={{
                     width:
-                      user?.percent === "100%"
-                        ? "100%"
-                        : `${
-                            Number(`${user?.percent[0]}${user?.percent[1]}`) -
-                            10
-                          }%`,
+                      user?.percent === 100 ? "100%" : `${user?.percent - 10}%`,
                   }}
                   className={`position-relative home__tasks__inner box-${index}`}
                 >
@@ -294,7 +302,7 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                   className={`position-absolute home__tasks__text box-${index}`}
                   style={{ zIndex: "999", right: "15rem", top: "1rem" }}
                 >
-                  {user?.percent}
+                  {user?.percent}%
                 </span>
               </div>
             </div>
