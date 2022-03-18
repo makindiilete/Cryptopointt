@@ -91,15 +91,18 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
   }
 
   useEffect(() => {
-    const incrementId = setInterval(
-      () => {
-        incrementTasksPercent();
-        handleTotalPercent();
-        console.log("incrementing now");
-      },
-      10000,
-      "increment"
-    );
+    let incrementId;
+    if (percentage !== [100, 100, 100, 100, 100, 100, 100, 100, 100, 100]) {
+      incrementId = setInterval(
+        () => {
+          incrementTasksPercent();
+          handleTotalPercent();
+        },
+        10000,
+        "increment"
+      );
+    }
+
     return () => {
       clearInterval(incrementId);
     };
