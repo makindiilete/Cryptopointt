@@ -33,6 +33,8 @@ function getDayOfTheWeek(date) {
       return "F";
     case 6:
       return "S";
+    default:
+      return "S";
   }
 }
 

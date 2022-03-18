@@ -18,13 +18,10 @@ import "../assets/css/home.css";
 import woman1 from "../assets/images/woman1.jpg";
 import woman2 from "../assets/images/woman2.jpg";
 import woman3 from "../assets/images/woman3.jpg";
-import woman4 from "../assets/images/woman4.jpg";
-import woman5 from "../assets/images/woman5.jpg";
-import woman6 from "../assets/images/woman6.jpg";
-import woman7 from "../assets/images/woman7.jpg";
 import { Progress } from "antd";
 import { getDays } from "../Utils/calendar";
 import { getAllUsers } from "../Utils/tasks";
+import { useTablet } from "../hooks/useMobile";
 
 const month = [
   "January",
@@ -40,13 +37,16 @@ const month = [
   "November",
   "December",
 ];
+
+let percentage = [32, 45, 55, 36, 33, 56, 43, 77, 85, 41];
 const HomePage = ({ handleToggleSider, selectedTitle }) => {
+  const tablet = useTablet();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const [users, setUsers] = useState([]);
-  const [taskList, setTaskList] = useState([
+  const [taskList] = useState([
     { task: "Flow Swift transfer" },
     { task: "Dashboard" },
     { task: "User Profile" },
@@ -71,11 +71,39 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
 
   function handleTotalPercent(usersArg) {
     let total = 0;
-    for (const user of users) {
-      total += user?.percent;
+    for (const percent of percentage) {
+      total += percent;
     }
     setTotalPercent(Math.floor(total / 10));
   }
+
+  function incrementTasksPercent() {
+    let latestPercentages = [...percentage];
+    console.log("lates percentage = ", latestPercentages);
+    for (let i = 0; i < latestPercentages.length; i++) {
+      if (latestPercentages[i] < 100 && latestPercentages[i] + 10 < 100) {
+        latestPercentages[i] += 10;
+      } else {
+        latestPercentages[i] = 100;
+      }
+    }
+    percentage = latestPercentages;
+  }
+
+  useEffect(() => {
+    const incrementId = setInterval(
+      () => {
+        incrementTasksPercent();
+        handleTotalPercent();
+        console.log("incrementing now");
+      },
+      10000,
+      "increment"
+    );
+    return () => {
+      clearInterval(incrementId);
+    };
+  }, []);
 
   useEffect(() => {
     handleTotalPercent();
@@ -240,17 +268,21 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
           <div className="position-absolute home-divider-line two" />
           <div className="position-absolute home-divider-line three" />
           <div className="position-absolute home-divider-line four" />
-          <div className="position-absolute home-divider-line five" />
-          <div className="position-absolute home-divider-line six" />
-          <div className="position-absolute home-divider-line two" />
-          <div className="position-absolute home-divider-line seven" />
-          <div className="position-absolute home-divider-line eight" />
-          <div className="position-absolute home-divider-line nine" />
-          <div className="position-absolute home-divider-line ten" />
-          <div className="position-absolute home-divider-line eleven" />
-          <div className="position-absolute home-divider-line twelve" />
-          <div className="position-absolute home-divider-line thirteen" />
-          <div className="position-absolute home-divider-line fourteen" />
+          {!tablet && (
+            <>
+              <div className="position-absolute home-divider-line five" />
+              <div className="position-absolute home-divider-line six" />
+              <div className="position-absolute home-divider-line two" />
+              <div className="position-absolute home-divider-line seven" />
+              <div className="position-absolute home-divider-line eight" />
+              <div className="position-absolute home-divider-line nine" />
+              <div className="position-absolute home-divider-line ten" />
+              <div className="position-absolute home-divider-line eleven" />
+              <div className="position-absolute home-divider-line twelve" />
+              <div className="position-absolute home-divider-line thirteen" />
+              <div className="position-absolute home-divider-line fourteen" />
+            </>
+          )}
         </div>
         <br />
         {users?.map((user, index) => (
@@ -282,7 +314,10 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                 <div
                   style={{
                     width:
-                      user?.percent === 100 ? "100%" : `${user?.percent - 10}%`,
+                      percentage[index] === 100
+                        ? "100%"
+                        : `${percentage[index] - 10}%`,
+                    transition: "width 1.5s",
                   }}
                   className={`position-relative home__tasks__inner box-${index}`}
                 >
@@ -293,7 +328,7 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                     <span className="mr-2">
                       <BsRecordCircleFill color="#fff" />
                     </span>
-                    <small>
+                    <small style={{ overflow: "scroll" }}>
                       {taskList[Math.floor(Math.random() * 10)].task}
                     </small>
                   </div>
@@ -302,7 +337,7 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                   className={`position-absolute home__tasks__text box-${index}`}
                   style={{ zIndex: "999", right: "15rem", top: "1rem" }}
                 >
-                  {user?.percent}%
+                  {percentage[index]}%
                 </span>
               </div>
             </div>

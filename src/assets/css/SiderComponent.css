@@ -21,7 +21,7 @@
   min-height: 6rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  width: 15rem;
+  width: 12rem;
 }
 
 .sider__button p {
@@ -73,4 +73,19 @@
 .ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon,
 .ant-menu-dark .ant-menu-item-selected .anticon {
   color: var(--primary-color) !important;
+}
+
+.ant-layout-sider {
+  min-width: 15rem !important;
+  width: 15rem !important;
+}
+
+@media (min-width: 1200px) {
+  .ant-layout-sider {
+    min-width: 20rem !important;
+    width: 20rem !important;
+  }
+  .sider__button {
+    width: 15rem;
+  }
 }
