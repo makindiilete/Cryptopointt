@@ -3,6 +3,7 @@ import {
   AiOutlinePlus,
   BiSearchAlt,
   BsDot,
+  BsRecordCircleFill,
   CgMenuRight,
   GiNestedEclipses,
   HiBell,
@@ -190,7 +191,34 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                   : ""
               }
             >
-              <small className="padding-none">{date}</small>
+              {date?.length === 3 ? (
+                <small className="padding-none">
+                  <span
+                    style={
+                      new Date().getDate() === Number(`${date[1]}${date[2]}`)
+                        ? { color: "#fff", opacity: "1" }
+                        : { opacity: "0.4", color: "#bebebe" }
+                    }
+                  >
+                    {date[0]}
+                  </span>
+                  <span>{`${date[1]}${date[2]}`}</span>
+                </small>
+              ) : (
+                <small className="padding-none">
+                  <span
+                    className="text-muted"
+                    style={
+                      new Date().getDate() === Number(`${date[1]}`)
+                        ? { color: "#fff", opacity: "1" }
+                        : { opacity: "0.4", color: "#bebebe" }
+                    }
+                  >
+                    {date[0]}
+                  </span>
+                  <span>{`${date[1]}`}</span>
+                </small>
+              )}
             </div>
           ))}
           <div className="position-absolute home__current-date-pointer-head" />
@@ -231,7 +259,45 @@ const HomePage = ({ handleToggleSider, selectedTitle }) => {
                 <RiMore2Fill size="2rem" color="#bebebe" />
               </div>
             </div>
-            <div className="col-md-9" />
+            <div className="col-md-9 d-flex align-items-center">
+              <div
+                className={`position-relative home__tasks box-${index}`}
+                style={{
+                  width: "90%",
+                }}
+              >
+                <div
+                  style={{
+                    width:
+                      user?.percent === "100%"
+                        ? "100%"
+                        : `${
+                            Number(`${user?.percent[0]}${user?.percent[1]}`) -
+                            10
+                          }%`,
+                  }}
+                  className={`position-relative home__tasks__inner box-${index}`}
+                >
+                  <div
+                    className={`position-absolute home__tasks__label box-${index}`}
+                    style={{ zIndex: "999", left: "2rem", top: "1rem" }}
+                  >
+                    <span className="mr-2">
+                      <BsRecordCircleFill color="#fff" />
+                    </span>
+                    <small>
+                      {taskList[Math.floor(Math.random() * 10)].task}
+                    </small>
+                  </div>
+                </div>
+                <span
+                  className={`position-absolute home__tasks__text box-${index}`}
+                  style={{ zIndex: "999", right: "15rem", top: "1rem" }}
+                >
+                  {user?.percent}
+                </span>
+              </div>
+            </div>
           </div>
         ))}
       </div>

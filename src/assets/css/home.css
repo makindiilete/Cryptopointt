@@ -80,6 +80,7 @@
   top: 5rem;
   left: 63rem;
   background-color: var(--primary-color);
+  z-index: 999;
 }
 
 .home__current-date-pointer-line {
@@ -88,6 +89,7 @@
   top: 6rem;
   left: 63.4rem;
   background-color: var(--primary-color);
+  z-index: 999;
 }
 
 .home-divider-line {
@@ -149,4 +151,134 @@
 }
 .home-divider-line.fourteen {
   left: 115rem;
+}
+
+.home__tasks,
+.home__tasks__inner {
+  height: 5rem;
+  border-radius: 25px;
+}
+
+.home__tasks.box-0 {
+  background-color: var(--orange-light-color) !important;
+}
+
+.home__tasks__inner.box-0 {
+  background-color: var(--orange-color);
+}
+
+.home__tasks__text.box-0 {
+  color: var(--orange-color);
+}
+
+.home__tasks__label {
+  color: #fff;
+}
+
+.home__tasks.box-1 {
+  background-color: rgba(249, 208, 24, 0.1);
+}
+
+.home__tasks__inner.box-1 {
+  background-color: var(--yellow-color);
+}
+
+.home__tasks__text.box-1 {
+  color: var(--yellow-color);
+}
+
+.home__tasks.box-2 {
+  background-color: var(--deepBlue-light-color);
+}
+
+.home__tasks__inner.box-2 {
+  background-color: var(--deepBlue-color);
+}
+
+.home__tasks__text.box-2 {
+  color: var(--deepBlue-color);
+}
+
+.home__tasks.box-3 {
+  background-color: var(--deepBlue-light-color);
+}
+
+.home__tasks__inner.box-3 {
+  background-color: var(--deepBlue-color);
+}
+
+.home__tasks__text.box-3 {
+  color: var(--deepBlue-color);
+}
+
+.home__tasks.box-4 {
+  background-color: var(--deepBlue-light-color);
+}
+
+.home__tasks__inner.box-4 {
+  background-color: var(--deepBlue-color);
+}
+
+.home__tasks__text.box-4 {
+  color: var(--deepBlue-color);
+}
+
+.home__tasks.box-5 {
+  background-color: var(--iceBlue-light-color);
+}
+
+.home__tasks__inner.box-5 {
+  background-color: var(--iceBlue-color);
+}
+
+.home__tasks__text.box-5 {
+  color: var(--iceBlue-color);
+}
+
+.home__tasks.box-6 {
+  background-color: rgba(249, 208, 24, 0.1);
+}
+
+.home__tasks__inner.box-6 {
+  background-color: var(--yellow-color);
+}
+
+.home__tasks__text.box-6 {
+  color: var(--yellow-color);
+}
+
+.home__tasks.box-7 {
+  background-color: var(--orange-light-color) !important;
+}
+
+.home__tasks__inner.box-7 {
+  background-color: var(--orange-color);
+}
+
+.home__tasks__text.box-7 {
+  color: var(--orange-color);
+}
+
+.home__tasks.box-8 {
+  background-color: var(--deepBlue-light-color);
+}
+
+.home__tasks__inner.box-8 {
+  background-color: var(--deepBlue-color);
+}
+
+.home__tasks__text.box-8 {
+  color: var(--deepBlue-color);
+}
+
+.home__tasks.box-9 {
+  background-color: var(--iceBlue-light-color);
+}
+
+.home__tasks__inner.box-9 {
+  background-color: var(--iceBlue-color);
+}
+
+.home__tasks__text.box-9 {
+  color: var(--iceBlue-color);
 }
