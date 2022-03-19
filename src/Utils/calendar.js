@@ -13,9 +13,9 @@ const month = [
   "December",
 ];
 
-function getDayOfTheWeek(date) {
+function getDayOfTheWeek(date, monthValue) {
   const dateConstruct = new Date(
-    `${month[new Date().getMonth()]} ${date} ${new Date().getFullYear()}`
+    `${month[monthValue]} ${date} ${new Date().getFullYear()}`
   );
   const dayOfDWeek = dateConstruct.getDay();
   switch (dayOfDWeek) {
@@ -38,22 +38,49 @@ function getDayOfTheWeek(date) {
   }
 }
 
-export function getDays() {
+function incrementCurrentDate(num) {
+  const d = new Date();
+  d.setDate(d.getDate() + num);
+  return {
+    date: d.getDate(),
+    month: d.getMonth(),
+  };
+}
+
+function decrementCurrentDate(num) {
+  const d = new Date();
+  d.setDate(d.getDate() - num);
+  return {
+    date: d.getDate(),
+    month: d.getMonth(),
+  };
+}
+
+function getDays() {
   let date = new Date().getDate();
+  let month = new Date().getMonth();
   let leftArr = [];
-  let rightArr = [];
+  let rightArr;
 
   // d 9 days b4 today
-  for (let i = date - 9; i < date; i++) {
-    const dayOfWeek = getDayOfTheWeek(i);
-    const dayAndDate = `${dayOfWeek}${i}`;
+  for (let i = 9; i > 0; i--) {
+    const dayOfWeek = getDayOfTheWeek(
+      decrementCurrentDate(i).date,
+      decrementCurrentDate(i).month
+    );
+    const dayAndDate = `${dayOfWeek}${decrementCurrentDate(i).date}`;
+    // leftArr = [...leftArr, dayAndDate];
     leftArr.push(dayAndDate);
   }
 
   // d 7 days after today
-  for (let i = date; i <= date + 7; i++) {
-    const dayOfWeek = getDayOfTheWeek(i);
-    const dayAndDate = `${dayOfWeek}${i}`;
+  rightArr = [`${getDayOfTheWeek(date, month)}${date}`];
+  for (let i = 1; i <= 7; i++) {
+    const dayOfWeek = getDayOfTheWeek(
+      incrementCurrentDate(i).date,
+      incrementCurrentDate(i).month
+    );
+    const dayAndDate = `${dayOfWeek}${incrementCurrentDate(i).date}`;
     rightArr.push(dayAndDate);
   }
   return [...leftArr, ...rightArr];
