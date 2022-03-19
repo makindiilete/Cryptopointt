@@ -56,7 +56,7 @@ function decrementCurrentDate(num) {
   };
 }
 
-function getDays() {
+export function getDays() {
   let date = new Date().getDate();
   let month = new Date().getMonth();
   let leftArr = [];
@@ -69,7 +69,6 @@ function getDays() {
       decrementCurrentDate(i).month
     );
     const dayAndDate = `${dayOfWeek}${decrementCurrentDate(i).date}`;
-    // leftArr = [...leftArr, dayAndDate];
     leftArr.push(dayAndDate);
   }
 
